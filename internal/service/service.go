@@ -104,6 +104,13 @@ func (s *Service) RegisterVolunteer(volunteerID, shiftID string) (*domain.Regist
 		}
 		existingShift, _ := s.store.GetShift(reg.ShiftID)
 		if existingShift != nil && existingShift.Overlaps(shift) {
+			s.store.SaveRegistration(&domain.Registration{
+				ID:           generateID("r"),
+				VolunteerID:  volunteerID,
+				ShiftID:      shiftID,
+				State:        domain.StateRegistered,
+				RegisteredAt: time.Now(),
+			})
 			return nil, fmt.Errorf("time conflict with registration %s", reg.ID)
 		}
 	}
