@@ -192,7 +192,7 @@ func (s *Service) CancelRegistration(regID string) (*domain.Registration, error)
 	// 从存储中删除该报名
 	s.store.DeleteRegistration(regID)
 	// 如果被取消的是 confirmed 状态，则需要触发递补
-	if reg.State == domain.StateRegistered || reg.State == domain.StateConfirmed || reg.State == domain.StateCheckedIn {
+	if reg.State == domain.StateConfirmed || reg.State == domain.StateCheckedIn {
 		s.autoFill(reg.ShiftID)
 	}
 	return cancelled, nil
