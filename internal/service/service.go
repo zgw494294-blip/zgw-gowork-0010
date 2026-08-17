@@ -214,7 +214,7 @@ func (s *Service) autoFill(shiftID string) {
 	}
 	// 按 RegisteredAt 升序排序
 	sort.Slice(candidates, func(i, j int) bool {
-		return candidates[i].RegisteredAt.Before(candidates[j].RegisteredAt)
+		return candidates[i].RegisteredAt.After(candidates[j].RegisteredAt)
 	})
 	// 尝试递补第一个候选人
 	candidate := candidates[0]

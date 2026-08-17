@@ -103,14 +103,14 @@ type Activity struct {
 
 // Registration 报名实体
 type Registration struct {
-	ID           string             `json:"id"`
-	VolunteerID  string             `json:"volunteer_id"`
-	ShiftID      string             `json:"shift_id"`
-	State        RegistrationState  `json:"state"`
-	RegisteredAt time.Time          `json:"registered_at"`
-	ConfirmedAt  *time.Time         `json:"confirmed_at,omitempty"`
-	CheckedInAt  *time.Time         `json:"checked_in_at,omitempty"`
-	SettledAt    *time.Time         `json:"settled_at,omitempty"`
+	ID           string            `json:"id"`
+	VolunteerID  string            `json:"volunteer_id"`
+	ShiftID      string            `json:"shift_id"`
+	State        RegistrationState `json:"state"`
+	RegisteredAt time.Time         `json:"registered_at"`
+	ConfirmedAt  *time.Time        `json:"confirmed_at,omitempty"`
+	CheckedInAt  *time.Time        `json:"checked_in_at,omitempty"`
+	SettledAt    *time.Time        `json:"settled_at,omitempty"`
 }
 
 // ActivityStatistics 活动统计结果
