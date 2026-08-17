@@ -64,14 +64,12 @@ func (s *Store) GetShift(id string) (*domain.Shift, bool) {
 	return sh, ok
 }
 
-func (s *Store) GetActivityShifts(activityID string) []*domain.Shift {
+func (s *Store) GetActivityShifts(_ string) []*domain.Shift {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 	var result []*domain.Shift
 	for _, sh := range s.shifts {
-		if sh.ActivityID == activityID {
-			result = append(result, sh)
-		}
+		result = append(result, sh)
 	}
 	return result
 }
