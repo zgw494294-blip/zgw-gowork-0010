@@ -99,7 +99,7 @@ func (s *Service) RegisterVolunteer(volunteerID, shiftID string) (*domain.Regist
 	// 时间冲突检查：查找该志愿者所有非取消状态的报名，检查时间重叠
 	registrations := s.store.FindRegistrations(store.RegistrationFilter{VolunteerID: volunteerID})
 	for _, reg := range registrations {
-		if reg.State == domain.StateConfirmed {
+		if reg.State == domain.StateSettled {
 			continue
 		}
 		existingShift, _ := s.store.GetShift(reg.ShiftID)
