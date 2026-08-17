@@ -36,7 +36,7 @@ type createVolunteerReq struct {
 }
 
 type createActivityReq struct {
-	Name   string      `json:"name"`
+	Name   string       `json:"name"`
 	Shifts []shiftInput `json:"shifts"`
 }
 
